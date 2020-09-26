@@ -6,7 +6,8 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var ruta = require('./routes/rutas'); // Ruta es el nombre de la variable que trae el archivo "ruta" que se encuentra en la carpeta "routes".
+var home = require('./routes/home'); // Ruta es el nombre de la variable que trae el archivo "ruta" que se encuentra en la carpeta "routes".
+var perfil = require('./routes/perfil');
 
 var app = express();
 
@@ -23,7 +24,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 //Rutas
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/proyecto', ruta); // Cuando uno busca localhost/projectoJuan se muestra la pagina. Esto es gracias a que esta conectado a la variable "ruta" de la linea 9.
+app.use('/home', home); // Cuando uno busca localhost/home se muestra la pagina. Esto es gracias a que esta conectado a la variable "home" de la linea 9.
+app.use('/perfil', perfil);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

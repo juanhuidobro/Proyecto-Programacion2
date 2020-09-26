@@ -7,22 +7,13 @@ let controlador = {
     detallePost:  (req, res) =>{
         res.render('detallePost')
     },
+
     agregarPost:  (req, res) =>{ 
         res.render('agregarPost')
     },
 
     detalleUsuario:  (req, res) =>{ 
         res.render('detalleUsuario')
-    },
-    
-    login:  (req, res) =>{ 
-        res.render('login')
-    },
-    miPerfil:  (req, res) =>{ 
-        res.render('miPerfil')
-    },
-    registracion:  (req, res) =>{ 
-        res.render('registracion')
     },
     
     resultadoBusqueda:  (req, res) =>{ 
