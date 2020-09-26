@@ -4,6 +4,9 @@ let controlador = {
         res.render('home')
     },
 
+    detallePost:  (req, res) =>{
+        res.render('detallePost')
+    },
     agregarPost:  (req, res) =>{ 
         res.render('agregarPost')
     },
