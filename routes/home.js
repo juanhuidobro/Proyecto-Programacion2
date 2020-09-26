@@ -5,9 +5,10 @@ let controlador = require("../controller/controlador");
 
 router.get('/home', controlador.home);
 router.get('/agregarPost', controlador.agregarPost);
-router.get('/detallePost', controlador.detallePost);
-router.get('/detalleUsuario', controlador.detalleUsuario);
+router.get('/detallePost/:id', controlador.detallePost);
+router.get('/detalleUsuario/:id', controlador.detalleUsuario);
 router.get('/resultadoBusqueda', controlador.resultadoBusqueda);
+
 
 
 

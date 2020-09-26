@@ -19,5 +19,6 @@ let controlador = {
     resultadoBusqueda:  (req, res) =>{ 
         res.render('resultadoBusqueda')
     },
+
 }
 module.exports = controlador;
