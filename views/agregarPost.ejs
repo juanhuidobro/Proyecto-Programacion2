@@ -32,12 +32,30 @@
     <%-include('headerDeslogueado')%>
     <main>
         <div class="uk-section uk-section-small">
-            <div class="uk-container uk-container-large uk-flex">
-                <form action="">
-                    <!-- <h2>(Formulario para agregar un post)</h2> -->
-                    
+            <div class="uk-container uk-container-large uk-flex uk-flex-middle uk-flex-center">
+                <form>
+                    <button class="uk-button uk-button-default uk-width-1-1 uk-margin-small-bottom">
+                        Seleccionar Imagen
+                    </button>
+                    <div class="uk-margin">
+                        <div class="uk-inline">
+                            <a class="uk-form-icon" href="#" uk-icon="icon: arrow-down"></a>
+                            <input class="uk-input" type="" value="Pie de Imagen" readonly>
+                        </div>
+                    </div>
+                    <div class="uk-margin">
+                        <textarea class="uk-textarea" rows="5" placeholder=""></textarea>
+                    </div>
+                    <div class="uk-margin">
+                        <div class="uk-inline">
+                            <a class="uk-form-icon" href="#" uk-icon="icon: location"></a>
+                            <input class="uk-input" type="text" placeholder="Ubicación">
+                        </div>
+                    </div>
+                    <p uk-margin>
+                        <a class="uk-button uk-button-default" href="/home/home">Publicar</a>
+                    </p>
                 </form>
-
             </div>
         </div>
     </main>
