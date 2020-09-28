@@ -25,7 +25,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/home', home); // Cuando uno busca localhost/home se muestra la pagina. Esto es gracias a que esta conectado a la variable "home" de la linea 9.
-app.use('/perfil', perfil);
+app.use('/perfil', perfil); // Cuando uno busca localhost/perfil se muestra la pagina. Esto es gracias a que esta conectado a la variable "perfil" de la linea 10.
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
