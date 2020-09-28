@@ -9,10 +9,10 @@
         href="https://w7.pngwing.com/pngs/624/811/png-transparent-computer-icons-facebook-social-media-f-logo-cross-brand.png"
         type="image/x-icon">
 
-    <link rel="stylesheet" href="../public/stylesheet/css/miPerfil.css">
-    <link rel="stylesheet" href="../public/stylesheet/css/header.css">
-    <link rel="stylesheet" href="../public/stylesheet/css/footer.css">
-    <link rel="stylesheet" href="../public/stylesheet/css/general.css">
+        <link rel="stylesheet" href="/stylesheets/miPerfil.css">
+        <link rel="stylesheet" href="/stylesheets/header.css">
+        <link rel="stylesheet" href="/stylesheets/footer.css">
+        <link rel="stylesheet" href="/stylesheets/general.css">
 
     <!-- UiKit -->
     <!-- <link rel="stylesheet" href="css/uikit.min.css">
@@ -29,7 +29,7 @@
 </head>
 
 <body>
-    <%-include('headerLogueado')%>
+    <%-include('./partials/headerLogueado')%>
     <main>
         <div class="uk-section uk-section-small">
             <div class="uk-container uk-container-small">
@@ -106,8 +106,7 @@
         </div>
     </main>
 
-    <%- include("footer") %>
-
+    <%- include("./partials/footer") %>
 </body>
 
 </html>
