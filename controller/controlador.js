@@ -1,3 +1,4 @@
+// atender los request del usuario y generar comunicacion entre vistas y modelos
 let controlador = {
     
     home:  (req, res) =>{ // Es la pagina que se va a ver cuando el usuario busque home
@@ -21,4 +22,10 @@ let controlador = {
     },
 
 }
+
+// request es el primer parametro, representa el request solicitado, siempre esta primero
+// response (segundo parametro) representa el response que le dara el servidor
+// res.render es la logica que va a manejar la ruta definida, es lo que va a ver el usuario en su navegador
+
 module.exports = controlador;
+// se exporta para hacerl visible el codigo que definimos en el controlador

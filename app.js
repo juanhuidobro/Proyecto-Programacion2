@@ -7,7 +7,7 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var home = require('./routes/home'); // Ruta es el nombre de la variable que trae el archivo "ruta" que se encuentra en la carpeta "routes".
-var perfil = require('./routes/perfil');
+var perfil = require('./routes/perfil'); //creamos una constante y requerimos el modulo
 
 var app = express();
 
@@ -26,6 +26,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/home', home); // Cuando uno busca localhost/home se muestra la pagina. Esto es gracias a que esta conectado a la variable "home" de la linea 9.
 app.use('/perfil', perfil); // Cuando uno busca localhost/perfil se muestra la pagina. Esto es gracias a que esta conectado a la variable "perfil" de la linea 10.
+// el primer parametro que recibe el app es un string que sera el nombre del recurso, el segundo es el nombre de la variable donde se almacenera el modulo del recurso
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
