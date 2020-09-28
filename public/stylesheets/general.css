@@ -4,3 +4,33 @@
 main{
     margin-bottom: 40px;
 }
+
+li a{
+    font-family: 'Baloo Tammudu 2';  
+    font-size: 18px;
+    font-style: italic;
+}
+
+.uk-navbar-left h2 a{
+    font-family: 'Courier Prime';
+    font-size: 25px;
+}
+
+a h4{
+    font-family: 'David Libre';
+    font-size: 20px;
+}
+a h4:hover{
+    color: red;
+}
+
+.uk-navbar-left h2 a:hover{
+    color: black;
+}
+
+.uk-button.uk-button-default.uk-first-column:hover{
+    background-color: green;
+}
+li:hover{
+    color: violet;
+}
