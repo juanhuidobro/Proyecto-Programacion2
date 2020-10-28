@@ -7,3 +7,4 @@ npm install sequelize
 npm install mysql2
 touch .sequelizerc
 sequelize init
+npm install express-session --save
