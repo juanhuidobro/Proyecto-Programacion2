@@ -4,7 +4,7 @@ module.exports = function (sequelize, dataTypes){
     let alias = 'Usuario'; //este alias se busca como nombre de la tabla en plural dentro de la base de datos
 
     let cols = {
-        idUsuario: {
+        IdUsuario: {
             autoIncrement: true,
             primaryKey: true,
             type: dataTypes.INTEGER
