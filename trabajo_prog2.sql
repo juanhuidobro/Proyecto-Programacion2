@@ -62,7 +62,7 @@ CREATE TABLE `Post` (
   PRIMARY KEY (`IdPost`),
   KEY `Id_Usuario` (`Id_Usuario`),
   CONSTRAINT `post_ibfk_1` FOREIGN KEY (`Id_Usuario`) REFERENCES `Usuarios` (`IdUsuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -86,10 +86,11 @@ CREATE TABLE `Usuarios` (
   `IdUsuario` int(11) NOT NULL AUTO_INCREMENT,
   `Nombre` varchar(50) NOT NULL,
   `Apellido` varchar(50) NOT NULL,
+  `Contraseña` varchar(50) NOT NULL,
   `Edad` decimal(4,1) NOT NULL,
   `Nacimiento` date NOT NULL,
   PRIMARY KEY (`IdUsuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -98,7 +99,7 @@ CREATE TABLE `Usuarios` (
 
 LOCK TABLES `Usuarios` WRITE;
 /*!40000 ALTER TABLE `Usuarios` DISABLE KEYS */;
-INSERT INTO `Usuarios` VALUES (1,'Joaquin','X',20.0,'2000-09-18'),(2,'Santiago','X',24.0,'1996-03-23'),(3,'Sofia','X',38.0,'1982-06-15'),(4,'Pedro','X',11.0,'2009-04-29'),(5,'Luciano','X',53.0,'1967-08-20');
+INSERT INTO `Usuarios` VALUES (1,'Joaquin','X','123',20.0,'2000-09-18'),(2,'Santiago','X','1234',24.0,'1996-03-23'),(3,'Sofia','X','12345',38.0,'1982-06-15'),(4,'Pedro','X','123456',11.0,'2009-04-29'),(5,'Luciano','X','',53.0,'1967-08-20');
 /*!40000 ALTER TABLE `Usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -111,4 +112,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-09-21 20:13:26
+-- Dump completed on 2020-10-31 15:58:19
