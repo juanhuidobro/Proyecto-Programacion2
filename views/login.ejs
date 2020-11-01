@@ -33,23 +33,23 @@
     <main>
         <div class="uk-section uk-section-small">
             <div class="uk-container uk-container-large uk-flex uk-flex-middle uk-flex-center">
-                <form>
+                <form action="/perfil/login" method="POST">
 
                     <div class="uk-margin">
                         <div class="uk-inline">
                             <a class="uk-form-icon" href="#" uk-icon="icon: mail"></a>
-                            <input class="uk-input" type="email" placeholder="Email">
+                            <input class="uk-input" type="email" placeholder="Email" name="email">
                         </div>
                     </div>
                 
                     <div class="uk-margin">
                         <div class="uk-inline">
                             <a class="uk-form-icon" href="#" uk-icon="icon: lock"></a>
-                            <input class="uk-input" type="password" placeholder="Password">
+                            <input class="uk-input" type="password" placeholder="Password" name="password">
                         </div>
                     </div>
                     <p uk-margin>
-                        <a class="uk-button uk-button-default" href="/perfil/miPerfil">Login</a>
+                        <button type="submit"><a class="uk-button uk-button-default" href="/perfil/miPerfil">Login</a></button>
                     </p>
                 </form>
             </div>

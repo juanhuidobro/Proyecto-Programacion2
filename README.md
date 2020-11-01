@@ -8,3 +8,4 @@ npm install mysql2
 touch .sequelizerc
 sequelize init
 npm install express-session --save
+npm install bcryptjs --save
