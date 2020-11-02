@@ -1,12 +1,17 @@
 const bcrypt = require('bcryptjs');
 const db = require('../database/models');
-const users = db.User;
+const users = db.Usuario;
 
 const op = db.Sequelize.Op;
 
 let perfilControlador = {
-    index:  function(req, res){ 
-        return res.render('registracion')
+    index:  function(req, res){ //el metodo index me trae la pagina de registracion
+        if(req.session.user != undefined){
+            return res.redirect('/perfil/miPerfil')
+        } else{
+            return res.render('registracion')
+            
+        }
     },
     store: function(req, res){
         let user = {
@@ -20,10 +25,15 @@ let perfilControlador = {
 
         return res.redirect('/perfil/login')
     },
-    index2: function(req, res){ 
+    index2: function(req, res){  //me trae la pagina de login
+        // si estoy logeado no me deberia dejar entrar a la pagina de login
+        if(req.session.user != undefined){
+            return res.redirect('/perfil/miPerfil')
+        } else {
         return res.render('login')
+    }
     },
-    login: function(req, res){
+    login: function(req, res){ 
         // chequear contraseña y encontrar email
         users.findOne({
             where : [{ email : req.body.email }] //tiene que coincidir con lo que viene del formulario
