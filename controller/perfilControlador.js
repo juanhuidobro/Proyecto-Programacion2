@@ -29,8 +29,16 @@ let perfilControlador = {
             where : [{ email : req.body.email }] //tiene que coincidir con lo que viene del formulario
         })
         .then( function(user){
-            if(bcrypt.compareSync(req.body.password, user.password)){
-                req.session.user = user // colocar al usuario de la base de datos en sesion
+            if(user == null){ //si el email no figura en la base de datos te redirecciona a la pagina de registracion
+                return res.redirect('/perfil/registracion')
+            } else if(bcrypt.compareSync(req.body.password, user.password )== false){
+                // email correcto pero contraseña no
+                return res.send("Contraseña Incorrecta")
+            } else if(bcrypt.compareSync(req.body.password, user.password )){
+                // coincide la contraseña
+                req.session.user = user
+                //session se maneja con un modulo (express session) se configura en app js
+                return res.redirect('/perfil/miPerfil')
             }
         })
         .catch( e => console.log(e))
