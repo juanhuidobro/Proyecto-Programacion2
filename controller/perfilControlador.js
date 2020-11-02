@@ -21,10 +21,19 @@ let perfilControlador = {
         return res.redirect('/perfil/login')
     },
     index2: function(req, res){ 
-        res.render('login')
+        return res.render('login')
     },
     login: function(req, res){
-        res.render('login')
+        // chequear contraseña y encontrar email
+        users.findOne({
+            where : [{ email : req.body.email }] //tiene que coincidir con lo que viene del formulario
+        })
+        .then( function(user){
+            if(bcrypt.compareSync(req.body.password, user.password)){
+                req.session.user = user // colocar al usuario de la base de datos en sesion
+            }
+        })
+        .catch( e => console.log(e))
     },
     miPerfil:  (req, res) =>{ 
         res.render('miPerfil')
