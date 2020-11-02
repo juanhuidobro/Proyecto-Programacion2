@@ -27,6 +27,16 @@ app.use(session(
 ));
 app.use(express.static(path.join(__dirname, 'public')));
 
+//sirve para hacer cosas en todas las vistas
+app.use(function(req, res, next){
+  //solo se usa cuando no tenes un usuario en sesion
+  if(req.session.user != undefined){
+  res.locals.user = req.session.user //locals es un obj literal, si hay algo en session lo ubicas dentro de locals.user
+  }
+
+  return next();
+})
+
 //Rutas
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
