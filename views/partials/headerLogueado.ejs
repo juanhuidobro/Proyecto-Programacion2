@@ -10,7 +10,11 @@
                         <li><a href="/home/home">Home</a></li>
                         <li><a href="/home/agregarPost">Postear</a></li>
                         <li><a href="/perfil/miPerfil">Perfil</a></li>
-                        <li><a href="/perfil/login">Logout</a></li>
+                        <% if(locals.user){ %> 
+                        <form action="/perfil/login">
+                            <button type="submit">Logout</button>
+                        </form>
+                        <% } %> 
                     </ul>
                 </div>
                 <div class="uk-navbar-right">
