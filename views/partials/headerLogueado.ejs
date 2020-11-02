@@ -11,7 +11,7 @@
                         <li><a href="/home/agregarPost">Postear</a></li>
                         <li><a href="/perfil/miPerfil">Perfil</a></li>
                         <% if(locals.user){ %> 
-                        <form action="/perfil/login">
+                        <form action="/logout" method="POST">
                             <button type="submit">Logout</button>
                         </form>
                         <% } %> 
