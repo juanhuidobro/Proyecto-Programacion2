@@ -12,11 +12,14 @@ module.exports = function (sequelize, dataTypes){
         Nombre_Completo: {
             type: dataTypes.STRING,
         },
+        Email:{
+            type: dataTypes.STRING,
+        },
         Contraseña: {
             type: dataTypes.STRING,
         },
         Edad: {
-            type: dataTypes.INTEGER,
+            type: dataTypes.DECIMAL,
         },
         Nacimiento: {
             type: dataTypes.DATE,
@@ -24,6 +27,8 @@ module.exports = function (sequelize, dataTypes){
     };
 
     let config = {
+        timestamps: false, //Aclaración en caso de no explicitar created_at, deleted_at y updated_at
+        // underscored: true, //Aclareción en caso que los timestamps usen guiones bajos en lugar de camelCase.
         tablaName: "Usuarios"
     };
 

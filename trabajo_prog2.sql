@@ -87,7 +87,7 @@ CREATE TABLE `Usuarios` (
   `Nombre_Completo` varchar(50) NOT NULL,
   `Email` varchar(50) NOT NULL,
   `Contraseña` varchar(50) NOT NULL,
-  `Edad` decimal(4,1) NOT NULL,
+  `Edad` int(11) NOT NULL,
   `Nacimiento` date NOT NULL,
   PRIMARY KEY (`IdUsuario`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
@@ -99,7 +99,7 @@ CREATE TABLE `Usuarios` (
 
 LOCK TABLES `Usuarios` WRITE;
 /*!40000 ALTER TABLE `Usuarios` DISABLE KEYS */;
-INSERT INTO `Usuarios` VALUES (1,'Joaquin A','j@gmail.com','123',20.0,'2000-09-18'),(2,'Santiago M','s@gmail.com','1234',24.0,'1996-03-23'),(3,'Sofia E','so@gmail.com','12345',38.0,'1982-06-15'),(4,'Pedro V','p@gmail.com','123456',11.0,'2009-04-29'),(5,' Luciano C','l@gmail.com','12',53.0,'1967-08-20');
+INSERT INTO `Usuarios` VALUES (1,'Joaquin A','j@gmail.com','123',20,'2000-09-18'),(2,'Santiago M','s@gmail.com','1234',24,'1996-03-23'),(3,'Sofia E','so@gmail.com','12345',38,'1982-06-15'),(4,'Pedro V','p@gmail.com','123456',11,'2009-04-29'),(5,' Luciano C','l@gmail.com','12',53,'1967-08-20');
 /*!40000 ALTER TABLE `Usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -112,4 +112,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-11-03 12:30:12
+-- Dump completed on 2020-11-03 12:39:48
