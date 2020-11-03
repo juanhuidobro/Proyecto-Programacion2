@@ -22,7 +22,8 @@ let perfilControlador = {
             nacimiento : req.body.nacimiento,
         }
         users.create(user);
-
+        
+        // return res.send(user)
         return res.redirect('/perfil/login')
     },
     index2: function(req, res){  //me trae la pagina de login

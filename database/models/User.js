@@ -9,10 +9,7 @@ module.exports = function (sequelize, dataTypes){
             primaryKey: true,
             type: dataTypes.INTEGER
         },
-        Nombre: {
-            type: dataTypes.STRING,
-        },
-        Apellido: {
+        Nombre_Completo: {
             type: dataTypes.STRING,
         },
         Contraseña: {
