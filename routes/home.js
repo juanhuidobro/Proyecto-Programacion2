@@ -3,8 +3,8 @@ var router = express.Router(); // guardo la ejecucion del metodo de express en u
 let controlador = require("../controller/controlador");
 
 
-router.get('/home', controlador.home);
-router.get('/agregarPost', controlador.agregarPost);
+router.get('/home', controlador.indexHome);
+router.get('/agregarPost', controlador.indexAgregarPost);
 router.get('/detallePost/:id', controlador.detallePost);
 router.get('/detalleUsuario/:id', controlador.detalleUsuario);
 // creamos rutas dinamicas, en este caso varia el id

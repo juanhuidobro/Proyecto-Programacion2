@@ -38,8 +38,10 @@
                         <img src="https://www.quien.net/wp-content/uploads/Jos%C3%A9-de-San-Mart%C3%ADn-150x150.png" alt="foto de perfil" class="foto-perfil">
                     </div>
                     <div class="uk-width-2-3 uk-flex uk-flex-column uk-flex-around">
-                        <div class="uk-flex uk-flex-middle">
-                            <h3 class="uk-margin-remove">José de San Martin</h3>
+                        <div class="uk-flex uk-flex-middle">                            
+                            <% if(locals.user){ %>
+                            <h3 class="uk-margin-remove"><%= locals.user.nombre %></h3>
+                            <% } %>
                             <a uk-icon="icon:cog; ratio: 1.2" class="uk-margin-left"></a>
                         </div>
                         <div>

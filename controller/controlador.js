@@ -1,16 +1,24 @@
 // atender los request del usuario y generar comunicacion entre vistas y modelos
 let controlador = {
     
-    home:  (req, res) =>{ // Es la pagina que se va a ver cuando el usuario busque home
-        res.render('home')
+    indexHome:  function(req, res) { // Es la pagina que se va a ver cuando el usuario busque home
+        if (req.session.user != undefined) {
+            return res.render('home')
+        }else{
+            return res.render('registracion')
+        }
     },
 
     detallePost:  (req, res) =>{
         res.render('detallePost')
     },
 
-    agregarPost:  (req, res) =>{ 
-        res.render('agregarPost')
+    indexAgregarPost:  (req, res) =>{ 
+        if (req.session.user != undefined) {
+            return res.render('agregarPost')
+        } else {
+            return res.render('registracion')
+        }
     },
 
     detalleUsuario:  (req, res) =>{ 
@@ -19,7 +27,7 @@ let controlador = {
     
     resultadoBusqueda:  (req, res) =>{ 
         res.render('resultadoBusqueda')
-    },
+    }
 
 }
 
