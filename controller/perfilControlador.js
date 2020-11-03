@@ -18,12 +18,12 @@ let perfilControlador = {
             nombre : req.body.name,
             email : req.body.email,
             password : bcrypt.hashSync(req.body.password, 10),
-            age : req.body.age,
+            edad : req.body.edad,
             nacimiento : req.body.nacimiento,
         }
         users.create(user);
         
-        // return res.send(user)
+        //return res.send(user)
         return res.redirect('/perfil/login')
     },
     index2: function(req, res){  //me trae la pagina de login
@@ -44,7 +44,8 @@ let perfilControlador = {
                 return res.redirect('/perfil/registracion')
             } else if(bcrypt.compareSync(req.body.password, user.password )== false){
                 // email correcto pero contraseña no
-                return res.send("Contraseña Incorrecta")
+                //return res.send(user)
+                return res.redirect('/perfil/login')
             } else if(bcrypt.compareSync(req.body.password, user.password )){
                 // coincide la contraseña
                 req.session.user = user

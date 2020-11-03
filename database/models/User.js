@@ -4,32 +4,32 @@ module.exports = function (sequelize, dataTypes){
     let alias = 'Usuario'; //este alias se busca como nombre de la tabla en plural dentro de la base de datos
 
     let cols = {
-        IdUsuario: {
+        id: {
             autoIncrement: true,
             primaryKey: true,
             type: dataTypes.INTEGER
         },
-        Nombre_Completo: {
-            type: dataTypes.STRING,
+        nombre: {
+            type: dataTypes.STRING
         },
-        Email:{
-            type: dataTypes.STRING,
+        email:{
+            type: dataTypes.STRING
         },
-        Contraseña: {
-            type: dataTypes.STRING,
+        password: {
+            type: dataTypes.STRING
         },
-        Edad: {
-            type: dataTypes.DECIMAL,
+        edad: {
+            type: dataTypes.INTEGER
         },
-        Nacimiento: {
-            type: dataTypes.DATE,
+        nacimiento: {
+            type: dataTypes.DATE
         }
     };
 
     let config = {
         timestamps: false, //Aclaración en caso de no explicitar created_at, deleted_at y updated_at
-        // underscored: true, //Aclareción en caso que los timestamps usen guiones bajos en lugar de camelCase.
-        tablaName: "Usuarios"
+        underscored: true, //Aclareción en caso que los timestamps usen guiones bajos en lugar de camelCase.
+        tablaName: "usuarios"
     };
 
     const User = sequelize.define(alias, cols, config);

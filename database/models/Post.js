@@ -1,21 +1,27 @@
 module.exports = function (sequelize, dataTypes){
     // que va a mirar en la base de datos
     
-        let alias = 'Post'; //este alias se busca como nombre de la tabla en plural dentro de la base de datos
+        let alias = 'Posteo'; //este alias se busca como nombre de la tabla en plural dentro de la base de datos
     
         let cols = {
-            IdPost: {
+            id: {
                 autoIncrement: true,
                 primaryKey: true,
                 type: dataTypes.INTEGER
             },
-            Id_Usuario: {
+            id_usuario: {
                 type: dataTypes.INTEGER,
                 foreignKey: true,
             },
-            Url: {
+            url: {
                 type: dataTypes.STRING,
             },
+            texto: {
+                type: dataTypes.STRING,
+            },
+            creacion: {
+                type: dataTypes.DATE,
+            }
         };
     
         let config = {

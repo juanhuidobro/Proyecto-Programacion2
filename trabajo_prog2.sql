@@ -23,16 +23,16 @@ DROP TABLE IF EXISTS `Comentarios`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Comentarios` (
-  `IdComentario` int(11) NOT NULL AUTO_INCREMENT,
-  `Id_Post` int(11) NOT NULL,
-  `Id_Usuario` int(11) NOT NULL,
-  `Texto` varchar(300) DEFAULT NULL,
-  `Creacion` date NOT NULL,
-  PRIMARY KEY (`IdComentario`),
-  KEY `Id_Post` (`Id_Post`),
-  KEY `Id_Usuario` (`Id_Usuario`),
-  CONSTRAINT `comentarios_ibfk_1` FOREIGN KEY (`Id_Post`) REFERENCES `Post` (`IdPost`),
-  CONSTRAINT `comentarios_ibfk_2` FOREIGN KEY (`Id_Usuario`) REFERENCES `Usuarios` (`IdUsuario`)
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_post` int(11) NOT NULL,
+  `id_usuario` int(11) NOT NULL,
+  `texto` varchar(300) DEFAULT NULL,
+  `creacion` date NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `comentarios_ibfk_1` (`id_post`),
+  KEY `comentarios_ibfk_2` (`id_usuario`),
+  CONSTRAINT `comentarios_ibfk_1` FOREIGN KEY (`id_post`) REFERENCES `Post` (`id`),
+  CONSTRAINT `comentarios_ibfk_2` FOREIGN KEY (`id_usuario`) REFERENCES `Usuarios` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=201 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -54,14 +54,14 @@ DROP TABLE IF EXISTS `Post`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Post` (
-  `IdPost` int(11) NOT NULL AUTO_INCREMENT,
-  `Id_Usuario` int(11) NOT NULL,
-  `Url` varchar(200) NOT NULL,
-  `Texto` varchar(300) NOT NULL,
-  `Creacion` date NOT NULL,
-  PRIMARY KEY (`IdPost`),
-  KEY `Id_Usuario` (`Id_Usuario`),
-  CONSTRAINT `post_ibfk_1` FOREIGN KEY (`Id_Usuario`) REFERENCES `Usuarios` (`IdUsuario`)
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_usuario` int(11) NOT NULL,
+  `url` varchar(200) NOT NULL,
+  `texto` varchar(300) NOT NULL,
+  `creacion` date NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `post_ibfk_1` (`id_usuario`),
+  CONSTRAINT `post_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `Usuarios` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -83,13 +83,13 @@ DROP TABLE IF EXISTS `Usuarios`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Usuarios` (
-  `IdUsuario` int(11) NOT NULL AUTO_INCREMENT,
-  `Nombre_Completo` varchar(50) NOT NULL,
-  `Email` varchar(50) NOT NULL,
-  `Contraseña` varchar(50) NOT NULL,
-  `Edad` int(11) NOT NULL,
-  `Nacimiento` date NOT NULL,
-  PRIMARY KEY (`IdUsuario`)
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(200) NOT NULL,
+  `email` varchar(200) NOT NULL,
+  `password` varchar(200) NOT NULL,
+  `edad` int(11) NOT NULL,
+  `nacimiento` date NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -112,4 +112,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-11-03 12:39:48
+-- Dump completed on 2020-11-03 16:24:04

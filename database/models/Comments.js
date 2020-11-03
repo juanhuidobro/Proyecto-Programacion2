@@ -1,26 +1,26 @@
 module.exports = function (sequelize, dataTypes){
     // que va a mirar en la base de datos
     
-        let alias = 'Comments'; //este alias se busca como nombre de la tabla en plural dentro de la base de datos
+        let alias = 'Comentarios'; //este alias se busca como nombre de la tabla en plural dentro de la base de datos
     
         let cols = {
-            IdComentario: {
+            id: {
                 autoIncrement: true,
                 primaryKey: true,
                 type: dataTypes.INTEGER
             },
-            Id_Post: {
+            id_post: {
                 type: dataTypes.INTEGER,
                 foreignKey: true
             },
-            Id_Usuario: {
+            id_usuario: {
                 type: dataTypes.INTEGER,
                 foreignKey: true
             },
-            Texto: {
+            texto: {
                 type: dataTypes.STRING
             },
-            Creacion: {
+            creacion: {
                 type: dataTypes.DATE
             },
         };
