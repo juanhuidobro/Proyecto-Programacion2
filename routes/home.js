@@ -13,5 +13,6 @@ router.get('/resultadoBusqueda', controlador.resultadoBusqueda);
 // get es el metodo http que queremos utilizar
 // el path hace referencia a la ruta en si
 // el callback llama una funcion del controlador
+router.get('/resultadousuario', controlador.buscador);
 
 module.exports = router; //exportamos contenido del router para hacerlo visible

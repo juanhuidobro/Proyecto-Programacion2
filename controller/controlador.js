@@ -1,4 +1,8 @@
 // atender los request del usuario y generar comunicacion entre vistas y modelos
+let db = require('../database/models');
+let op = db.Sequelize.op;
+let bycrypt = require('bcryptjs');
+
 let controlador = {
     
     indexHome:  function(req, res) { // Es la pagina que se va a ver cuando el usuario busque home
@@ -27,8 +31,34 @@ let controlador = {
     
     resultadoBusqueda:  (req, res) =>{ 
         res.render('resultadoBusqueda')
-    }
+    },
 
+    buscador: function (req, res, next) {
+        db.User.findAll({
+            where: {
+                [Op.or]: [{
+                    Nombre: {
+                        [Op.like]: '%' + req.query.buscador + '%'
+                    }
+                },
+                {
+                    email: {
+                        [Op.like]: '%' + req.query.buscador + '%'
+                    }
+                }
+                ]
+            }
+        }).then((name) => {
+
+
+            res.render("resultadobuscadorusuario", {
+                name: name
+            });
+
+
+
+        });
+    },
 }
 
 // request es el primer parametro, representa el request solicitado, siempre esta primero
