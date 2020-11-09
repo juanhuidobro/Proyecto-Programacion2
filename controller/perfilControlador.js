@@ -49,6 +49,11 @@ let perfilControlador = {
             } else if(bcrypt.compareSync(req.body.password, user.password )){
                 // coincide la contraseña
                 req.session.user = user
+
+                if(req.body.rememberme != undefined){
+                    //guardo el id porque es mas facil de buscar, el tercer parametro es tiempo de vida
+                    res.cookie('userId', user.id, {maxAge : 1000 * 60 * 60 * 24 * 90}) //3 meses guarda la cookie
+                }
                 //session se maneja con un modulo (express session) se configura en app js
                 return res.redirect('/perfil/miPerfil')
             }

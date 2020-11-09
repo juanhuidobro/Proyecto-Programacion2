@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var logger = require('morgan');
+var db = require('./database/models');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -32,10 +33,28 @@ app.use(function(req, res, next){
   //solo se usa cuando no tenes un usuario en sesion
   if(req.session.user != undefined){
   res.locals.user = req.session.user //locals es un obj literal, si hay algo en session lo ubicas dentro de locals.user
+  return next();
+  }
+  return next();
+})
+
+/* app.use(function(req, res, next){
+  if (req.cookies.userId != undefined && req.session.user == undefined) { //tenemos cookie pero no tenemos sesion
+    //busco al usuario en la base
+    db.Usuario.findByPk(req.cookie.userId)
+      .then(function(user){
+        //lo cargo en la sesion
+        req.session.user = user;
+        req.locals.user = user
+        return next();
+      })
+      .catch( e => console.log(e))
+  } else{
+    return next();
   }
 
   return next();
-})
+}) */
 
 //Rutas
 app.use('/', indexRouter);
