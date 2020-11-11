@@ -2,7 +2,7 @@
 let db = require('../database/models');
 let op = db.Sequelize.op;
 let bycrypt = require('bcryptjs');
-const posteos = db.Posteo
+const post = db.Posteo
 
 let controlador = {
     
@@ -27,12 +27,12 @@ let controlador = {
     },
 // no me reconoce la tabla de post
     storePost: function(req, res){
-        let post = {
+        let posteo = {
             url: req.body.url,
-            pieImagen: req.body.pie,
-            creacion: req.body.creacion,
+            texto: req.body.texto,
+            creacion: req.body.fecha,
         }
-        posteos.create(post);
+        post.create(posteo);
 
         //return res.send(post)
         return res.redirect('/perfil/miPerfil')
