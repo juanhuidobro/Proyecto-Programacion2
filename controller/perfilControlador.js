@@ -1,6 +1,7 @@
 const bcrypt = require('bcryptjs');
 const db = require('../database/models');
 const users = db.Usuario;
+const posteo = db.Posteo;
 
 const op = db.Sequelize.Op;
 
@@ -60,9 +61,18 @@ let perfilControlador = {
         })
         .catch( e => console.log(e))
     },
-    miPerfil:  (req, res) =>{ 
+    miPerfil: function(req, res){
         res.render('miPerfil')
     }
+    /* show: function(req, res){
+        posteo.findAll()
+        .then(function(posteos){
+            return res.render('miPerfil', {posteos});
+        })
+        .catch(function(error){
+            console.log(error);
+        })
+    } */
 
 }
 
