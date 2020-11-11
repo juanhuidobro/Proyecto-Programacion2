@@ -5,6 +5,7 @@ let controlador = require("../controller/controlador");
 
 router.get('/home', controlador.indexHome);
 router.get('/agregarPost', controlador.indexAgregarPost);
+router.post('/agregarPost', controlador.storePost);
 router.get('/detallePost/:id', controlador.detallePost);
 router.get('/detalleUsuario/:id', controlador.detalleUsuario);
 // creamos rutas dinamicas, en este caso varia el id

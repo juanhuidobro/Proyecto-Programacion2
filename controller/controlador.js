@@ -2,6 +2,7 @@
 let db = require('../database/models');
 let op = db.Sequelize.op;
 let bycrypt = require('bcryptjs');
+const posteos = db.Posteo
 
 let controlador = {
     
@@ -17,12 +18,24 @@ let controlador = {
         res.render('detallePost')
     },
 
-    indexAgregarPost:  (req, res) =>{ 
+    indexAgregarPost: function(req, res){ 
         if (req.session.user != undefined) {
             return res.render('agregarPost')
         } else {
             return res.render('registracion')
         }
+    },
+// no me reconoce la tabla de post
+    storePost: function(req, res){
+        let post = {
+            url: req.body.url,
+            pieImagen: req.body.pie,
+            creacion: req.body.creacion,
+        }
+        posteos.create(post);
+
+        //return res.send(post)
+        return res.redirect('/perfil/miPerfil')
     },
 
     detalleUsuario:  (req, res) =>{ 

@@ -25,7 +25,9 @@ module.exports = function (sequelize, dataTypes){
         };
     
         let config = {
-            tablaName: "Post"
+            tablaName: "post",
+            timestamps: false, //Aclaración en caso de no explicitar created_at, deleted_at y updated_at
+            underscored: true //Aclareción en caso que los timestamps usen guiones bajos en lugar de camelCase.
         };
     
         const Post = sequelize.define(alias, cols, config);

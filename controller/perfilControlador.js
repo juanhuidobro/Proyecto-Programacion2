@@ -41,10 +41,10 @@ let perfilControlador = {
         })
         .then( function(user){
             if(user == null){ //si el email no figura en la base de datos te redirecciona a la pagina de registracion
-                return res.redirect('/perfil/registracion')
+                res.send('El Email no existe')
             } else if(bcrypt.compareSync(req.body.password, user.password )== false){
                 // email correcto pero contraseña no
-                //return res.send(user)
+                res.send("Contraseña Incorrecta")
                 return res.redirect('/perfil/login')
             } else if(bcrypt.compareSync(req.body.password, user.password )){
                 // coincide la contraseña
