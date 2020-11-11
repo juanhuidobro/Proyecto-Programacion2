@@ -52,8 +52,6 @@ app.use(function(req, res, next){
   } else{
     return next();
   }
-
-  return next();
 }) */
 
 //Rutas
