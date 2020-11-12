@@ -38,21 +38,21 @@ app.use(function(req, res, next){
   return next();
 })
 
-/* app.use(function(req, res, next){
+app.use(function(req, res, next){
   if (req.cookies.userId != undefined && req.session.user == undefined) { //tenemos cookie pero no tenemos sesion
     //busco al usuario en la base
-    db.Usuario.findByPk(req.cookie.userId)
+    db.Usuario.findByPk(req.cookies.userId)
       .then(function(user){
         //lo cargo en la sesion
         req.session.user = user;
-        req.locals.user = user
+        res.locals.user = user
         return next();
       })
       .catch( e => console.log(e))
   } else{
     return next();
   }
-}) */
+}) 
 
 //Rutas
 app.use('/', indexRouter);

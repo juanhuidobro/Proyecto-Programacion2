@@ -2,7 +2,9 @@
 let db = require('../database/models');
 let op = db.Sequelize.op;
 let bycrypt = require('bcryptjs');
+const { localsName } = require('ejs');
 const post = db.Posteo
+const users = db.Usuario;
 
 let controlador = {
     
@@ -27,14 +29,15 @@ let controlador = {
     },
 // no me reconoce la tabla de post
     storePost: function(req, res){
-        let posteo = {
+        let posts = {
             url: req.body.url,
             texto: req.body.texto,
             creacion: req.body.fecha,
+            id_usuario: req.session.user.id
         }
-        post.create(posteo);
+        post.create(posts);
 
-        //return res.send(post)
+        //return res.send(posts)
         return res.redirect('/perfil/miPerfil')
     },
 
