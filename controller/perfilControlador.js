@@ -62,9 +62,17 @@ let perfilControlador = {
         .catch( e => console.log(e))
     },
     miPerfil: function(req, res){
-        res.render('miPerfil')
-    }
-    /* show: function(req, res){
+        posteo.findAll()
+        .then(function(resultados){
+            //return res.send(resultados)
+            return res.render('miPerfil')
+        })
+        .catch(function(error){
+            console.log(e);
+        })
+
+    },
+/*     show: function(req, res){
         posteo.findAll()
         .then(function(posteos){
             return res.render('miPerfil', {posteos});
@@ -72,7 +80,7 @@ let perfilControlador = {
         .catch(function(error){
             console.log(error);
         })
-    } */
+    }  */
 
 }
 
