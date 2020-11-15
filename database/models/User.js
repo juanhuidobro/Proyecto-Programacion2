@@ -34,7 +34,7 @@ module.exports = function (sequelize, dataTypes){
 
     const User = sequelize.define(alias, cols, config);
 
-     User.associate = function(models){
+     /* User.associate = function(models){
         User.hasMany(models.Post,{
             as: 'posteoUser',
             foreignKey: 'id_usuario'
@@ -44,7 +44,7 @@ module.exports = function (sequelize, dataTypes){
             as: 'userComment',
             foreignKey: 'id_usuario'
         })
-    }  
+    }   */
 
     return User
 

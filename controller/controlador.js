@@ -39,7 +39,7 @@ let controlador = {
                     { association: "comments" }
                 ]})
             .then(function(post){
-                res.render('detallePost')
+                res.render('detallePost',{post})
             })
             .catch(function (error) {
                 console.log(error);
@@ -78,7 +78,7 @@ let controlador = {
                 ]
             })  
             .then(function(usuario){
-            res.render('detalleUsuario')
+            res.render('detalleUsuario', {usuario})
             })
             .catch(function (error) {
                 console.log(error);
