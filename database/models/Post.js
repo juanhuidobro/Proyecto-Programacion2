@@ -11,7 +11,6 @@ module.exports = function (sequelize, dataTypes){
             },
             id_usuario: {
                 type: dataTypes.INTEGER,
-                foreignKey: true,
             },
             url: {
                 type: dataTypes.STRING,
@@ -32,6 +31,18 @@ module.exports = function (sequelize, dataTypes){
     
         const Post = sequelize.define(alias, cols, config);
     
+         Post.associate = function(models){
+            Post.belongsTo(models.User, {
+                as: 'posteoUser',
+                foreignKey: 'id_usuario'
+            });
+
+            Post.hasMany(models.Comments, {
+                as: 'comments',
+                foreignKey: 'id_post'
+            })
+        } 
+
         return Post
     
     };

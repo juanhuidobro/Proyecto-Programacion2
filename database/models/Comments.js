@@ -1,36 +1,48 @@
 module.exports = function (sequelize, dataTypes){
     // que va a mirar en la base de datos
     
-        let alias = 'Comentarios'; //este alias se busca como nombre de la tabla en plural dentro de la base de datos
     
-        let cols = {
-            id: {
-                autoIncrement: true,
-                primaryKey: true,
-                type: dataTypes.INTEGER
-            },
-            id_post: {
-                type: dataTypes.INTEGER,
-                foreignKey: true
-            },
-            id_usuario: {
-                type: dataTypes.INTEGER,
-                foreignKey: true
-            },
-            texto: {
-                type: dataTypes.STRING
-            },
-            creacion: {
-                type: dataTypes.DATE
-            },
-        };
+    let cols = {
+        id: {
+            autoIncrement: true,
+            primaryKey: true,
+            type: dataTypes.INTEGER
+        },
+        id_post: {
+            type: dataTypes.INTEGER,
+        },
+        id_usuario: {
+            type: dataTypes.INTEGER,
+        },
+        texto: {
+            type: dataTypes.STRING
+        },
+        creacion: {
+            type: dataTypes.DATE
+        },
+    };
     
-        let config = {
-            tablaName: "Comentarios"
-        };
+    let config = {
+        timestamps: false, //Aclaración en caso de no explicitar created_at, deleted_at y updated_at
+        underscored: true, //Aclareción en caso que los timestamps usen guiones bajos en lugar de camelCase.
+        tableName: "Comentarios"
+    };
     
-        const Comments = sequelize.define(alias, cols, config);
+    let alias = 'Comentario'; //este alias se busca como nombre de la tabla en plural dentro de la base de datos
+    const Comentario = sequelize.define(alias, cols, config);
     
-        return Comments
+         Comentario.associate = function(models){
+            Comentario.belongsTo(models.Post,{
+                as: 'comments',
+                foreignKey: 'id_post'
+            });
+
+            Comentario.belongsTo(models.User,{
+                as: 'userComment',
+                foreignKey: 'id_usuario'
+            })
+        } 
+
+        return Comentario
     
     };

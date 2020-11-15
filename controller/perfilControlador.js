@@ -42,7 +42,7 @@ let perfilControlador = {
         })
         .then( function(user){
             if(user == null){ //si el email no figura en la base de datos te redirecciona a la pagina de registracion
-                res.send('El Email no existe')
+                return res.send('El Email no existe')
             } else if(bcrypt.compareSync(req.body.password, user.password )== false){
                 // email correcto pero contraseña no
                 res.send("Contraseña Incorrecta")
@@ -72,15 +72,6 @@ let perfilControlador = {
         })
 
     },
-/*     show: function(req, res){
-        posteo.findAll()
-        .then(function(posteos){
-            return res.render('miPerfil', {posteos});
-        })
-        .catch(function(error){
-            console.log(error);
-        })
-    }  */
 
 }
 
