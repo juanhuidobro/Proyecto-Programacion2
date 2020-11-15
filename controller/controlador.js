@@ -30,7 +30,8 @@ let controlador = {
 
     detallePost:  (req, res) =>{
         
-        var id = req.params.id
+        return res.render('detallePost')
+        /* var id = req.params.id
 
         db.Post.findByPk(id,
             {
@@ -43,7 +44,7 @@ let controlador = {
             })
             .catch(function (error) {
                 console.log(error);
-            })
+            }) */
     },
 
     indexAgregarPost: function(req, res){ 
