@@ -20,7 +20,7 @@ let perfilControlador = {
             edad : req.body.edad,
             nacimiento : req.body.nacimiento,
         }
-        users.create(user);
+        db.Usuario.create(user);
         
         //return res.send(user)
         return res.redirect('/perfil/login')
