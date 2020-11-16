@@ -40,12 +40,12 @@
                     </div>
                     <div class="uk-width-2-3 uk-flex uk-flex-column uk-flex-around">
                         <div class="uk-flex uk-flex-middle">
-                            <h3 class="uk-margin-remove">Nombre de usuario</h3>
+                            <h3 class="uk-margin-remove"><%= usuario.nombre %></h3>
                             <button class="uk-button uk-button-small uk-button-primary uk-margin-left">Seguir</button>
                         </div>
                         <div>
                             <ul class="red-usuario uk-flex uk-flex-between uk-width-1-2">
-                                <li>100 posts</li>
+                                <li><%= usuario.posteoUser.length %>  posts</li>
                                 <li>200 seguidores</li>
                                 <li>300 seguidos</li>
                             </ul>
@@ -56,11 +56,11 @@
 
                <section class="muro uk-flex uk-flex-middle uk-flex-center">    
                 <div class="uk-grid uk-child-width-1-3 uk-width-1-1 uk-margin-remove" uk-grid>
-                     <% for( let i = 0; i < 6; i++ ) { %>
+                     <% for( let i = 0; i < usuario.posteoUser.length; i++ ) { %>
                         <div class="uk-card uk-card-hover uk-card-body uk-flex uk-flex-column uk-flex-middle uk-flex-center ">
-                            <a href="/home/detallePost/1" class="link-detalle">
-                                <img src="https://i-cf3.gskstatic.com/content/dam/cf-consumer-healthcare/panadol/es_cb/symptoms/adult/blue-icons/difficulty-breathing-200x200.png?auto=format" alt="foto de perfil" class="foto-perfil">
-                                <p class="uk-text-center">Lorem ipsum</p>
+                            <a href="/home/detallePost/<%= usuario.posteoUser[i].id %> " class="link-detalle">
+                                <img src="<%= usuario.posteoUser[i].url %> " alt="foto de perfil" class="foto-perfil">
+                                <p class="uk-text-center"><%= usuario.posteoUser[i].texto %> </p>
                             </a>
                         </div>
                      <% } %>
