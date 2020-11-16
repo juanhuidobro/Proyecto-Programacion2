@@ -32,14 +32,16 @@
     <main>
         <div class="uk-card uk-card-default uk-width-1-2@m" id="caja-resena">
             <div class="uk-card-header">
-                <% if (usuarios.length == 0) { %> 
+                <% if (resultados.length == 0) { %> 
                     <h1> No se encontraron usuarios </h1>
                 <% } else {%> 
-                <% for(let i = 0; i < usuarios.length; i ++) { %>
+                <% for(let i = 0; i < resultados.length; i ++) { %>
                 <div class="uk-grid-small uk-flex-middle" uk-grid>
                     <div class="uk-width-expand">
+                        <a href="/home/detalleUsuario/<%= resultados[i].id_usuario %>">
                         <h3 class="uk-card-title uk-margin-remove-bottom" style="text-align: center;">
-                            <%=usuarios[i].nombre%></h3>
+                            <%=resultados[i].nombre%></h3>
+                        </a>
                     </div>
                 <% } %>
                 <% } %> 

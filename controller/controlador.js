@@ -39,7 +39,7 @@ let controlador = {
                     { association: "comments" }
                 ]})
             .then(function(detallePosteo){
-                res.render('detallePost',detallePosteo)
+                res.render('detallePost', {detallePosteo: detallePosteo})
             })
             .catch(function (error) {
                 console.log(error);
@@ -95,6 +95,7 @@ let controlador = {
             }
             })
         .then(function(resultados){
+            //return res.send(resultados)
             res.render('resultadoBuscadorUsuario',{resultados: resultados, loQueBusco: loQueBusco})
         })
         .catch(error => {
