@@ -15,8 +15,8 @@ let controlador = {
                     { association: "comments" }
                 ],
             })
-            .then(function(posteo){
-                res.render('home',{posteo: posteo});
+            .then(function(posts){
+                res.render('home',{posts: posts});
             })
             .catch(function (error) {
                 console.log(e);
