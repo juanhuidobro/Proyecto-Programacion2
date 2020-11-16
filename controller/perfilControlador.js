@@ -1,7 +1,5 @@
 const bcrypt = require('bcryptjs');
-const db = require('../database/models');
-const users = db.Usuario;
-const posteo = db.Posteo;
+const db = require('../database/models/index');
 
 const op = db.Sequelize.Op;
 
@@ -37,7 +35,7 @@ let perfilControlador = {
     },
     login: function(req, res){ 
         // chequear contraseña y encontrar email
-        users.findOne({
+        db.Usuario.findOne({
             where : [{ email : req.body.email }] //tiene que coincidir con lo que viene del formulario
         })
         .then( function(user){
@@ -62,14 +60,18 @@ let perfilControlador = {
         .catch( e => console.log(e))
     },
     miPerfil: function(req, res){
-        posteo.findAll()
-        .then(function(resultados){
-            //return res.send(resultados)
-            return res.render('miPerfil')
-        })
-        .catch(function(error){
-            console.log(e);
-        })
+        db.Posteo.findAll({
+                include: [
+                        { association: "posteoUser" },
+                        { association: "comments" }
+                    ],
+                })
+            .then(function (usuarioPerfil) {
+                res.render('miPerfil',{usuarioPerfil: usuarioPerfil});
+            })
+            .catch(function (error) {
+                console.log(e);
+            })
 
     },
 

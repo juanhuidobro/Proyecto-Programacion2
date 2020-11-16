@@ -16,7 +16,7 @@ let controlador = {
                 ],
             })
             .then(function(posteo){
-                res.render('home');
+                res.render('home',{posteo: posteo});
             })
             .catch(function (error) {
                 console.log(e);
@@ -38,8 +38,8 @@ let controlador = {
                     { association: "posteoUser" },
                     { association: "comments" }
                 ]})
-            .then(function(post){
-                res.render('detallePost',{post})
+            .then(function(detallePosteo){
+                res.render('detallePost',detallePosteo)
             })
             .catch(function (error) {
                 console.log(error);
@@ -78,7 +78,7 @@ let controlador = {
                 ]
             })  
             .then(function(usuario){
-            res.render('detalleUsuario', {usuario})
+            res.render('detalleUsuario', {usuario: usuario})
             })
             .catch(function (error) {
                 console.log(error);
