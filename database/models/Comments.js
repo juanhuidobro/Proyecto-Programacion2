@@ -31,17 +31,17 @@ module.exports = function (sequelize, dataTypes){
     let alias = 'Comentario'; //este alias se busca como nombre de la tabla en plural dentro de la base de datos
     const Comentario = sequelize.define(alias, cols, config);
     
-          /* Comentario.associate = function(models){
-            Comentario.belongsTo(models.Post,{
+           Comentario.associate = function(models){
+            Comentario.belongsTo(models.Posteo,{
                 as: 'comments',
                 foreignKey: 'id_post'
             });
 
-            Comentario.belongsTo(models.User,{
+            Comentario.belongsTo(models.Usuario,{
                 as: 'userComment',
                 foreignKey: 'id_usuario'
             })
-        }    */
+        }    
 
         return Comentario
     

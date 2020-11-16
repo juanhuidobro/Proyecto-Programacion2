@@ -30,10 +30,9 @@ let controlador = {
 
     detallePost:  (req, res) =>{
         
-        return res.render('detallePost')
-        /* var id = req.params.id
+        var id = req.params.id
 
-        db.Post.findByPk(id,
+        db.Posteo.findByPk(id,
             {
                 include: [
                     { association: "posteoUser" },
@@ -44,7 +43,7 @@ let controlador = {
             })
             .catch(function (error) {
                 console.log(error);
-            }) */
+            }) 
     },
 
     indexAgregarPost: function(req, res){ 

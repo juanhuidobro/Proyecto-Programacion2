@@ -32,19 +32,19 @@ module.exports = function (sequelize, dataTypes){
         tableName: "Usuarios"
     };
 
-    const User = sequelize.define(alias, cols, config);
+    let User = sequelize.define('Usuario', cols, config);
 
-     /* User.associate = function(models){
-        User.hasMany(models.Post,{
+     User.associate = function(models){
+        User.hasMany(models.Posteo,{
             as: 'posteoUser',
             foreignKey: 'id_usuario'
         });
 
-        User.hasMany(models.Comments, {
+        User.hasMany(models.Comentario, {
             as: 'userComment',
             foreignKey: 'id_usuario'
         })
-    }   */
+    }  ;
 
     return User
 

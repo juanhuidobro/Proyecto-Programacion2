@@ -31,17 +31,17 @@ module.exports = function (sequelize, dataTypes){
     
         const Post = sequelize.define(alias, cols, config);
     
-        /*  Post.associate = function(models){
-            Post.belongsTo(models.User, {
+          Post.associate = function(models){
+            Post.belongsTo(models.Usuario, {
                 as: 'posteoUser',
                 foreignKey: 'id_usuario'
             });
 
-            Post.hasMany(models.Comments, {
+            Post.hasMany(models.Comentario, {
                 as: 'comments',
                 foreignKey: 'id_post'
             })
-        }  */
+        }  
 
         return Post
     
