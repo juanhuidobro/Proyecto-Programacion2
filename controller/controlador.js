@@ -85,35 +85,21 @@ let controlador = {
             })
     },
     
-    resultadoBusqueda:  (req, res) =>{ 
-        res.render('resultadoBusqueda')
-    },
-
     buscador: function (req, res, next) {
-        db.User.findAll({
+        let loQueBusco = req.query.buscador
+        db.Usuario.findAll(
+            {
             where: {
-                [Op.or]: [{
-                    Nombre: {
-                        [Op.like]: '%' + req.query.buscador + '%'
-                    }
-                },
-                {
-                    email: {
-                        [Op.like]: '%' + req.query.buscador + '%'
-                    }
-                }
-                ]
+                [op.or]: [{nombre : {[op.like]: '%' + loQueBusco + '%'}},
+                {email: {[Op.like]: '%' + loQueBusco + '%'}}]
             }
-        }).then((name) => {
-
-
-            res.render("resultadobuscadorusuario", {
-                name: name
-            });
-
-
-
-        });
+            })
+        .then(function(resultados){
+            res.render('resultadoBuscadorUsuario',{resultados: resultados, loQueBusco: loQueBusco})
+        })
+        .catch(error => {
+            console.log(error)
+        })
     },
 }
 

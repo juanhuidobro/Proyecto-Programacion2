@@ -30,29 +30,21 @@
 
 <body>
     <main>
-        <% for(let i = 0; i < name.length; i ++) { %>
         <div class="uk-card uk-card-default uk-width-1-2@m" id="caja-resena">
             <div class="uk-card-header">
+                <% if (usuarios.length == 0) { %> 
+                    <h1> No se encontraron usuarios </h1>
+                <% } else {%> 
+                <% for(let i = 0; i < usuarios.length; i ++) { %>
                 <div class="uk-grid-small uk-flex-middle" uk-grid>
                     <div class="uk-width-expand">
                         <h3 class="uk-card-title uk-margin-remove-bottom" style="text-align: center;">
-                            <%=name[i].Nombre%></h3>
+                            <%=usuarios[i].nombre%></h3>
                     </div>
+                <% } %>
+                <% } %> 
                 </div>
             </div>
-            <div class="uk-card-header">
-                <h3>Nombre completo:</h3>
-                <p><strong><%=name[i].Apellido%></strong></p>
-            </div>
-            <div class="uk-card-header">
-                <h3>Cumpleaños:</h3>
-                <p><strong><%=name[i].Nacimiento%></strong></p>
-            </div>
-            <div class="uk-card-header">
-                <h3>Email:</h3>
-                <p><strong><%=name[i].Edad%></strong></p>
-            </div>
-            <% } %>
     </main>
 </body>
 
